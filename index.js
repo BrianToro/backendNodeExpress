@@ -4,9 +4,13 @@ const app = express();
 const { config } = require('./config/index.js');
 const { logErrors, wrapErrors ,errorHandler } = require('./middlewares/errorHandler');
 const { notFoundHandler } = require('./middlewares/notFoundHandler')
+const cors = require('cors');
 
 //midleware para body parser
 app.use(express.json());
+
+//Cross origin access
+app.use(cors());
 
 //Routes
 moviesApi(app)
